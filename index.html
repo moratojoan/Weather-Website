@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joan Weather</title>
+    <link rel="icon" href="images/Clouds.png" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <div>
+                    <div>
+                        <h1>J-Weather</h1>
+                    </div>
+                    <div class="searchCity">
+                        <div class="inputBox">
+                            <input type="text" placeholder="Search a city..." v-model="search" v-on:keyup.enter="searchNewCity">
+                            <button v-on:click="searchNewCity"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <ul v-show="showSearchedCityList" class="searchCityList">
+                            <li v-for="city in filterCities" v-on:click="searchFinished(city)">{{city.name}}, {{city.country}}</li>
+                        </ul>
+                        <div v-show="showNotFound" class="searchCityList">
+                            <p>No City Found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main v-if="!loading" class="container">
+            <div v-if="!searchButNoClick">
+                <div v-if="!error1">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#now">Now</a></li>
+                        <li><a data-toggle="tab" href="#days5">5 days</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="now" class="tab-pane fade in active">
+                            <div v-if="!error1" class="dataNow">
+                                <h2>{{dataNow.name}}</h2>
+                                <div class="dataNowContent">
+                                    <div class="dataNowMainContent">
+                                        <img class="weatherIcon" v-bind:src="getWeatherIcon(dataNow)" alt="weatherIcon">
+                                        <div>
+                                            <h3>{{dataNow.main.temp}} ºC</h3>
+                                            <p><span class="tempMin">{{dataNow.main.temp_min}}</span> | <span class="tempMax">{{dataNow.main.temp_max}}</span></p>
+                                            <h4>{{dataNow.weather[0].description}}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="dataNowSecondContent">
+                                        <p>Data:</p>
+                                        <ul>
+                                            <li>Humidity: {{dataNow.main.humidity}} %</li>
+                                            <li>Pressure: {{dataNow.main.pressure}} hpa</li>
+                                            <li>Wind speed: {{dataNow.wind.speed}} m/s</li>
+                                            <li>Clouds: {{dataNow.clouds.all}} %</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="days5" class="tab-pane fade">
+                            <div v-if="!error2" class="dataNow">
+                                <h2>{{data5Days.city.name}}</h2>
+                                <div class="data5div">
+                                    <div v-for="data in data5Days.list" class="data5Content">
+                                        <p>{{data.dt_txt}}</p>
+                                        <div class="data5MainContent">
+                                            <img class="weatherIcon5" v-bind:src="getWeatherIcon(data)" alt="weatherIcon">
+                                            <div>
+                                                <h3>{{data.main.temp}} ºC</h3>
+                                                <p><span class="tempMin">{{data.main.temp_min}}</span> | <span class="tempMax">{{data.main.temp_max}}</span></p>
+                                                <h4>{{data.weather[0].description}}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="data5SecondContent">
+                                            <p>Data:</p>
+                                            <ul>
+                                                <li>Humidity: {{data.main.humidity}} %</li>
+                                                <li>Pressure: {{data.main.pressure}} hpa</li>
+                                                <li>Wind speed: {{data.wind.speed}} m/s</li>
+                                                <li>Clouds: {{data.clouds.all}} %</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-if="error2" class="dataNow">
+                                <h1>Error:</h1>
+                                <h3>{{error2Message}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="error1" class="dataNow">
+                    <h1>Error:</h1>
+                    <h3>{{error1Message}}</h3>
+                </div>
+            </div>
+            <div v-else>
+                <ul v-show="showSearchedCityList2" class="searchCityList2">
+                    <li v-for="city in filterCitiesNoLimit" v-on:click="searchFinished(city)">{{city.name}}, {{city.country}}</li>
+                </ul>
+                <div v-show="showNotFound2">
+                    <p>No City Found</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+    <!--SCRIPTS-->
+    <!--Vue-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--JS-->
+    <script src="scriptsData/cityList.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

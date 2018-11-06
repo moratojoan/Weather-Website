@@ -1,0 +1,281 @@
+body {
+    background-image: url("../images/fondo3.jpg");
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
+
+header {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+header > div > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    color: black;
+    font-size: 40px;
+}
+
+.searchCity {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+.inputBox {
+    margin-top: 10px;
+    font-size: 22px;
+    border-radius: 5px;
+    border: solid 2px black;
+    display: flex;
+    align-items: stretch;
+    height: 35px;
+}
+
+.inputBox input {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: none;
+    width: 300px;
+    padding: 0;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.inputBox button {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    border: none;
+    background-color: white;
+}
+
+.searchCityList {
+    position: absolute;
+}
+
+
+.nav-tabs li {
+    font-size: 16px;
+}
+
+main {
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background: rgba(255, 255, 255, 0.38);
+    border: solid 1px rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.85);
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:link {
+    background-color: rgba(255, 255, 255, 0.38);
+}
+
+.tab-pane {
+    border: solid 1px #ddd;
+    border-top: none;
+    padding-bottom: 70px;
+}
+
+.dataNow {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.dataNow h2 {
+    margin-top: 0;
+    margin-left: 30px;
+    font-size: 50px;
+}
+
+/**/
+.dataNowContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 85%;
+}
+
+.dataNowMainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.weatherIcon {
+    width: 180px;
+}
+
+.dataNowMainContent h3 {
+    font-size: 50px;
+    text-align: center;
+    margin-left: 35px;
+}
+
+.dataNowMainContent p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.tempMin {
+    color: #2f7fff
+}
+
+.tempMax {
+    color: red;
+}
+
+.dataNowMainContent h4 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.dataNowSecondContent {
+    color: rgba(49, 49, 49, 0.85);
+}
+
+.dataNowSecondContent p {
+    text-decoration: underline;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.dataNowSecondContent ul {
+    list-style: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+/**/
+
+/**/
+.data5div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data5Content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+    border: solid 1px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.data5Content > p {
+    margin: 0;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.data5MainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weatherIcon5 {
+    width: 100px;
+/*    margin-left: 60px;*/
+    margin-right: 20px;
+}
+
+.data5MainContent > div {
+    width: 120px;
+}
+
+.data5MainContent h3 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.data5MainContent p {
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+}
+
+.data5MainContent h4 {
+    text-align: center;
+    font-size: 15px;
+    margin: 0;
+}
+
+.data5SecondContent {
+    color: rgba(49, 49, 49, 0.85);
+}
+
+.data5SecondContent p {
+    text-decoration: underline;
+    font-size: 12px;
+    font-style: italic;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.data5SecondContent ul {
+    list-style: none;
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+/**/
+
+.searchCityList {
+    margin-top: 4px;
+    padding: 10px;
+    background-color: #da9eff;
+    border: solid 1px rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.85);
+}
+
+.searchCityList li {
+    margin-top: 3px;
+    padding: 5px;
+    list-style-type: none;
+    background-color: #c25eff;
+    border: solid 1px rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.85);
+}
+
+.searchCityList li:hover {
+    background-color: #775eff;
+    cursor: pointer;
+}
+.searchCityList2 li:hover {
+    cursor: pointer;
+}
